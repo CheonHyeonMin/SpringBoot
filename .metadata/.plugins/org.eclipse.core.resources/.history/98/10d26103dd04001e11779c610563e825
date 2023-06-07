@@ -1,0 +1,5 @@
+package com.smhrd.myapp.domain;
+
+public class Member {
+
+}

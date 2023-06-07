@@ -1,0 +1,13 @@
+package com.smhrd.myapp.controller;
+
+import org.springframework.stereotype.Controller;
+
+//view 반환 컨트롤러 지정
+@Controller
+public class HomeController {
+	
+	@RequestMapping(value="/", method=RequestMethod.GET)
+	public String main() {
+		return "main";
+	}
+}

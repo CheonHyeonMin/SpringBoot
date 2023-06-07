@@ -1,0 +1,5 @@
+package com.smhrd.shop.domain;
+
+public class Product {
+
+}

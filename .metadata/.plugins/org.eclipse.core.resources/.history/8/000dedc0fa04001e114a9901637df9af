@@ -1,0 +1,11 @@
+package com.smhrd.shop.mapper;
+
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface ProductMapper {
+	
+	//product 전체 정보 불러오기
+	public void productList();
+
+}

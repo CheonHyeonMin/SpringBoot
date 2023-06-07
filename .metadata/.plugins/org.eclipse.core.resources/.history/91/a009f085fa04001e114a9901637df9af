@@ -1,0 +1,11 @@
+package com.smhrd.shop.domain;
+
+public class Product {
+	private String ptype;
+	private String pcode;
+	private String pname;
+	private int price;
+	private String color;
+	private String img;
+
+}

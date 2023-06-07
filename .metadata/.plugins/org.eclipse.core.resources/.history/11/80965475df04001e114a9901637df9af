@@ -1,0 +1,17 @@
+package com.smhrd.myapp.controller;
+
+import com.smhrd.myapp.domain.Member;
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+//@Controller + @ResponseBody
+//데이터(모델)을 반환해주는 컨트롤러 지정
+@RestController
+public class MemberController {
+	@GetMapping("/member")
+	public List<Member> memberList(){
+		
+	}
+}

@@ -1,0 +1,5 @@
+package com.smhrd.shop.service;
+
+public class ProductService {
+
+}

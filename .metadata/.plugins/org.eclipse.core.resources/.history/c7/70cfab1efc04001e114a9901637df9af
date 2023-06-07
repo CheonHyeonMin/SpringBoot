@@ -1,0 +1,17 @@
+package com.smhrd.shop.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.smhrd.shop.mapper.ProductMapper;
+
+@Service
+public class ProductService {
+	@Autowired
+	private ProductMapper mapper;
+	
+	//product 전체 정보 불러올 때 사용
+	public void productList() {
+		
+	}
+}
