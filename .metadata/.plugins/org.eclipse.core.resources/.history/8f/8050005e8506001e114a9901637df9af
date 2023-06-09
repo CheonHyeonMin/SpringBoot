@@ -24,7 +24,6 @@ public class ProductController {
 	
 	@GetMapping("/")
 	public JSONArray productList() {
-		System.out.println("이곳은 8090");
 		JSONArray array = service.productList();
 		return array;
 	}
