@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.smhrd.board.mapper.BoardMapper">
+	<insert id="write" parameterType="com.smhrd.board.domain.Board">
+		insert into board(title, content, writer, img) values(#{title}, #{content}, #{writer}, #{img} )
+	</insert>
+	
+	<select id="boardList" resultType="com.smhrd.board.domain.Board">
+		select * from board;
+	</select>
+	
+	
+	
+</mapper>
