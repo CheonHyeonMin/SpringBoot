@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="js/index.js"></script>
 </head>
 <body>
 
@@ -27,7 +28,8 @@
 		      
 		   	  <tr th:each="board : ${list}">
 		   	  	<td th:text="${board.idx}"></td>
-		   	  	<td th:text="${board.title}"></td>
+		   	  	<!-- 계속 바뀌는 값 : @{} -->
+		   	  	<td><a th:text="${board.title}" th:href="@{board/content/{idx}(idx=${board.idx})}"></a></td>
 		   	  	<td th:text="${board.writer}"></td>
 		   	  	<td th:text="${board.indate}"></td>
 		   	  	<td> <button class="btn btn-sm btn-success" th:onClick="goDelete([[${board.idx}]])">삭제</button> </td>
@@ -51,64 +53,7 @@
 </div>
 
 <script>
-	function goDelete(idx){
-		$.ajax({
-			url : "board/delete/"+idx,
-			type : "get",
-			success : loadList
-			,
-			error : function(){
-				alert("안됨")
-			}
-			
-		})
-	}
 	
-	//DB(board) 전체 정보(data만!) 가져오기
-	function loadList(){
-		$.ajax({
-			url : "board/ajax",
-			type : "get",
-			dataType : "json", //서버에서 반환해주는 데이터 타입
-			success : updateTable,
-			error : function(){
-				alert("loadList 실패!")
-			}
-		})
-	}
-	
-	function updateTable(data){
-		var result = "<table class='table table-bordered table-hover'>";
-		   result += "<thead>"
-		   result += "<tr>";
-		   result += "<th>번호</th>";
-		   result += "<th>제목</th>";
-		   result += "<th>작성자</th>";
-		   result += "<th>작성일</th>";
-		   result += "<th>삭제</th>";
-		   result += "</tr>";
-		   result += "</thead>"
-		   //반복문
-		   result += "<tbody>";
-		   $.each(data, (index,vo)=> {  //vo -< Board , index(0~)
-		      result += "<tr>";
-		      result += "<td>"+vo.idx+"</td>";
-		      result += "<td>"+vo.title+"</td>";
-		      result += "<td>"+vo.writer+"</td>";
-		      result += "<td>"+vo.indate+"</td>";
-		      result += "<td><button class='btn btn-sm btn-success' onClick='goDelete("+vo.idx+")'>삭제</button></td>"
-		      result += "</tr>";
-		   })
-		   result += "</tbody>";
-		   result += "<tr>";
-		   result += "<td colspan='6'>";
-		   result += "<button onClick=\"location.href='board/writeform '\" class='btn btn-primary btn-sm'>글작성</button>";
-		   result += "</td>";
-		   result += "</tr>";
-		   result += "</table>";
-		   
-		   $("#list").html(result)
-	}
 </script>
 
 
